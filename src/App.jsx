@@ -1,34 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Route, Routes, Navigate } from 'react-router-dom'
+import Home from './Views/Home/Home'
+import Form from './Views/Form/Form'
+import Login from './Views/Login/Login'
+import SingUp from './Views/SingUp/SingUp'
+import Update from './Views/Update/Update'
+import NavBar from './Components/NavBar/NavBar'
+import { useLocation } from 'react-router-dom'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const location = useLocation();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+    <div>
+
+      {location.pathname !== '/' && location.pathname !== '/SingUp' && <NavBar />}
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/singUp' element={<SingUp />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/form/:id' element={<Form />} />
+        <Route path='/update/:id' element={<Update />} />
+        <Route path='/*' element={<Navigate to="/home" />} />
+      </Routes>
+
+    </div>
+
   )
 }
 
