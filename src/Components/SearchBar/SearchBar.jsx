@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFormById} from "../../redux/Actions/getFormById";
 import style from "./SearchBar.module.css"
 import { useNavigate } from "react-router-dom";
+import {FaSearch} from 'react-icons/fa'
 import Swal from 'sweetalert2';
 
 
@@ -58,9 +59,20 @@ export default function SearchBar() {
    };
 
    return (
-   <div className={style.searchbar}>
-      <input className={style.input} placeholder=' Insertar código aqui ' value ={code} onChange={(event) => handleChange(event)}/>
-      <button className={style.button} type='submit' onClick={(event) => handleSubmit(event)}>Validar Código</button>  
-   </div>
+     <div className={style.searchbar}>
+       <input
+         className={style.inputContainer}
+         placeholder=" Insertar código aqui para validar "
+         value={code}
+         onChange={(event) => handleChange(event)}
+       />
+       <button
+         className={style.button}
+         type="submit"
+         onClick={(event) => handleSubmit(event)}
+       >
+         <FaSearch className={style.iconButton} />
+       </button>
+     </div>
    );
 }

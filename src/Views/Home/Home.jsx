@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../../Components/SearchBar/SearchBar'
@@ -6,9 +6,11 @@ import { getResponses } from '../../redux/Actions/getResponses';
 import { getForm } from '../../redux/Actions/getForm';
 import { getUserById } from '../../redux/Actions/getUserById';
 import styles from './Home.module.css'
-//import image from '../../assets/logo-pedro-2.jpg'
 import { deleteRes } from '../../redux/Actions/deleteResponse';
 import Swal from 'sweetalert2';
+import {MdDeleteForever} from 'react-icons/md';
+import {FaEdit} from 'react-icons/fa';
+//import image from '../../assets/logo-pedro-2.jpg'
 
 const Home = () => {
     const navigate = useNavigate();
@@ -110,13 +112,28 @@ const Home = () => {
                     const form = allForms?.find(form => form.id === res.FormId)
                     
                     return (
-                        <div className={styles.res}>
-                        <h2  style={{fontSize:"3vh" }}>{form?.title}</h2>
-                        <button className={styles.delete} type='submit' onClick={(event) => handleDelete(event,res.id)}>Eliminar</button> 
-                        <button className={styles.button} type='submit' onClick={(event) => handleSubmit(event,res.id)}>Ver Respuestas</button>  
-                        </div>
-                        
-                    )}
+                      <div className={styles.res}>
+                        <h2 style={{ fontSize: "3vh" }}>{form?.title}</h2>
+                        <button
+                          className={styles.delete}
+                          type="submit"
+                          onClick={(event) => handleDelete(event, res.id)}
+                        >
+                          <MdDeleteForever 
+                          className={styles.estiloIconDelete}
+                          />
+                        </button>
+                        <button
+                          className={styles.button}
+                          type="submit"
+                          onClick={(event) => handleSubmit(event, res.id)}
+                        >
+                         <FaEdit 
+                         className={styles.buttonEdit}
+                         />
+                        </button>
+                      </div>
+                    );}
                 ) : "No hay formularios por el momento"}
             </div>
         </div>

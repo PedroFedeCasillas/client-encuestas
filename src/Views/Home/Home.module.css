@@ -24,8 +24,10 @@
     background-color: #001e26;
 }
 .barContainer{
-    margin-top: 1vh;
-    /* background-color: rgba(245, 245, 220, 0); */
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 2px;
     width: 80%;
 }
 .responses{
@@ -63,7 +65,7 @@
 }
 .delete{
     height: 6vh;
-    width: 8vw;
+    width: 6vw;
     margin-left:auto;
     border-radius: 2vh;
     color:white;
@@ -75,12 +77,12 @@
     transform: translate(0%);
     text-transform: uppercase;
     font-weight: bold;
-    background-color: rgb(243, 91, 129);
+    /* background-color: rgb(243, 91, 129); */
     font-size: 2vh
 }
 .button{
     height: 6vh;
-    width: 10vw;
+    width: 6vw;
     margin-left: auto;
     border-radius: 2vh;
     margin-left: 1vw;
@@ -93,18 +95,24 @@
     transform: translate(0%);
     text-transform: uppercase;
     font-weight: bold;
-    background-color: #0b5ed7;
+    /* background-color: #0b5ed7; */
     font-size: 2vh
 }
+.buttonEdit{
+    font-size: 35px;
+    color: rgb(27, 91, 211);
+}
+.estiloIconDelete{
+    font-size: 40px;
+    color: rgb(209, 42, 42); 
+}
 
-.delete:hover {
-    
-    background-color: rgb(224, 55, 98);
+.estiloIconDelete:hover {
+     color: #9e4b5e;
     border:none;
   }
 
-.button:hover {
-   
-    background-color: rgb(14, 74, 186);
+.buttonEdit:hover {
+    color: #4ec0ff;
     border:none;
   }
